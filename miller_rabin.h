@@ -1,13 +1,22 @@
 #ifndef LARGE_PRIME_NUMBERS_MILLER_RABIN_H
 #define LARGE_PRIME_NUMBERS_MILLER_RABIN_H
 
-#include <boost/multiprecision/cpp_int.hpp>
+#include "large_type.h"
 
 namespace Proj {
-using boost_int = boost::multiprecision::cpp_int;
 
-bool miller_rabin(boost_int n, int b, int k = 1);
-// k is number of iterations with different bases. gotta figure it out, for now it is unused
+enum class TestStatus { Prime, Composite, ProbablyPrime };
+
+struct DecomposeProp {
+    large_int n;
+    large_int t;
+    int exp_two;
+};
+
+DecomposeProp reduce(const large_int& n);
+TestStatus test_n_base(DecomposeProp n_reduce, const large_int& base);
+
+TestStatus miller_rabin_test(const large_int& n, std::size_t trials);
 
 }  // namespace Proj
 
