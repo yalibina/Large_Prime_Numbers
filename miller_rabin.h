@@ -14,7 +14,7 @@ struct DecomposeProp {
 };
 
 DecomposeProp reduce(const large_int& n);
-TestStatus test_n_base(DecomposeProp n_reduce, const large_int& base);
+TestStatus test_n_base(const DecomposeProp& n_reduce, const large_int& base);
 TestStatus miller_rabin_test(const large_int& n, std::size_t trials);
 
 }  // namespace Proj

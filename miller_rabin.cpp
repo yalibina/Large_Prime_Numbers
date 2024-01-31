@@ -18,10 +18,9 @@ DecomposeProp reduce(const large_int& n) {
     return {n, t, a};
 }
 
-TestStatus test_n_base(DecomposeProp n_reduce, const large_int& base) {
-    large_int t = n_reduce.t;
-    large_int n = n_reduce.n;
-    large_int test = fast_pow(base, t, n);
+TestStatus test_n_base(const DecomposeProp& n_reduce, const large_int& base) {
+
+    large_int test = fast_pow(base, n_reduce.t, n_reduce.n);
     if (test == 1 || test == (n_reduce.n - 1)) {
         return TestStatus::ProbablyPrime;
     }
