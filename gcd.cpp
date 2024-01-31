@@ -1,20 +1,25 @@
 #include "gcd.h"
 
-Proj::boost_int Proj::calc_gcd(boost_int a, boost_int b) {
-    if (b == 0) {
-        return a;
+namespace Proj {
+
+large_int calc_gcd(large_int a, large_int b) {
+    large_int temp;
+    while (b != 0) {
+        temp = b;
+        b = a % b;
+        a = temp;
     }
-    return gcd(b, a % b);
+    return a;
 }
 
-Proj::Gcd Proj::knuth_gcd(boost_int a, boost_int b) {
-    std::array<boost_int, 3> u = {0, 0, a};
-    std::array<boost_int, 3> v = {0, 0, a};
+Gcd knuth_gcd(large_int a, large_int b) {
+    std::array<large_int, 3> u = {0, 0, a};
+    std::array<large_int, 3> v = {0, 0, a};
 
-    boost_int q, tmp = 0;
+    large_int q, tmp = 0;
 
     while (v[2] != 0) {
-        q = u[2] / v[2];  // rounds toward zero
+        q = u[2] / v[2];
 
         for (int i = 0; i < 3; ++i) {
             tmp = v[i];
@@ -24,3 +29,4 @@ Proj::Gcd Proj::knuth_gcd(boost_int a, boost_int b) {
     }
     return {u[0], u[1], u[2]};
 }
+}  // namespace Proj

@@ -1,15 +1,23 @@
 #include "fast_pow.h"
 
-Proj::boost_int Proj::fast_pow(boost_int base, boost_int pow, boost_int mod) {
+namespace Proj {
 
-    boost_int res = 1;
+large_int fast_pow(const large_int& base, large_int pow, const large_int& mod) {
+    assert(pow >= 0 && "Power must be non-negative.");
+    assert(mod > 0 && "Modulus must be positive.");
+
+    large_int res = 1;
+    large_int y = base;
+
     while (pow > 0) {
         if (pow & 1) {
-            res = (res * base) % mod;
+            res = (res * y) % mod;
         }
-        base = (base * base) % mod;
+
+        y = (y * y) % mod;
         pow >>= 1;
     }
 
-    return res;
+    return res % mod;
 }
+}  // namespace Proj
