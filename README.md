@@ -4,6 +4,9 @@
 
 * [Boost multiprecision](https://github.com/boostorg/multiprecision.git) для представления больших чисел
 * [magic_enum](https://github.com/Neargye/magic_enum) для работы с Enum
+* [Google C++ Testing Framework](https://github.com/google/googletest) для тестирования
+
+Библиотеки подтягиваются в CMakeLists.txt
 
 Compiler compatibility:
 * Clang/LLVM >= 5
