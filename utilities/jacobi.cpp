@@ -7,7 +7,7 @@ int do_jacobi(large_int d, large_int n) {
     assert(n % 2 == 1 && "Denominator must be odd.");
     assert(d != 0 && "Numerator must be non-zero.");
 
-    if (calc_gcd(d, n) != 1) {
+    if (calc_gcd(abs(d), n) != 1) {
         return 0;
     }
 
@@ -31,7 +31,7 @@ int do_jacobi(large_int d, large_int n) {
             ++t;
         }
         if (t % 2 == 1) {
-            if (d % 8 == 3 || d % 8 == 5) {
+            if (n % 8 == 3 || n % 8 == 5) {
                 jacobi = -jacobi;
             }
         }

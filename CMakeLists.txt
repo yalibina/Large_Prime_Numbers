@@ -33,10 +33,12 @@ set(gtest_force_shared_crt ON CACHE BOOL "" FORCE)
 
 FetchContent_MakeAvailable(boost_mult magic_enum googletest)
 
-add_executable(large_prime_numbers main.cpp utilities/fast_pow.cpp utilities/gcd.cpp primality/miller_rabin.cpp primality/lucas_lehmer.cpp primality/fermat.cpp
+add_executable(large_prime_numbers main.cpp utilities/fast_pow.cpp utilities/gcd.cpp test_primality/miller_rabin.cpp test_primality/lucas_lehmer.cpp test_primality/fermat.cpp
         factorization/trial_division.cpp factorization/pollard.cpp factorization/fermat_factor.cpp utilities/int_sqrt.cpp utilities/reduce.cpp
-        primality/trial_division_test.cpp utilities/prime_generator.cpp
-        )
+        test_primality/trial_division_test.cpp utilities/prime_generator.cpp
+        utilities/jacobi.cpp
+        test_primality/lucas_spsp_test.cpp
+)
 
 target_link_libraries(large_prime_numbers PRIVATE boost_multiprecision magic_enum)
 
