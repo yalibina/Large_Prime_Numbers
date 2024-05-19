@@ -1,5 +1,4 @@
 #include "lucas_lehmer.h"
-#include "../utilities/fast_pow.h"
 
 namespace Proj {
 

@@ -4,6 +4,10 @@
 #include "../utilities/large_type.h"
 #include "../utilities/test_status.h"
 #include "../utilities/reduce.h"
+#include "../utilities/fast_pow.h"
+#include "trial_division_test.h"
+#include "fermat.h"
+#include "../utilities/rand.h"
 #include "boost/multiprecision/detail/uniform_int_distribution.hpp"
 
 namespace Proj {

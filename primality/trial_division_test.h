@@ -3,6 +3,7 @@
 
 #include "../utilities/large_type.h"
 #include "../utilities/test_status.h"
+#include "../utilities/int_sqrt.h"
 
 namespace Proj {
 

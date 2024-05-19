@@ -3,6 +3,9 @@
 
 #include "../utilities/large_type.h"
 #include "../utilities/test_status.h"
+#include "../utilities/fast_pow.h"
+#include "../utilities/gcd.h"
+#include <assert.h>
 
 namespace Proj {
 

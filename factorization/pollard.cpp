@@ -1,6 +1,4 @@
 #include "pollard.h"
-#include "../utilities/gcd.h"
-#include "../utilities/fast_pow.h"
 
 namespace Proj {
 

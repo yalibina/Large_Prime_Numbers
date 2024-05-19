@@ -1,6 +1,6 @@
 
 #include "trial_division_test.h"
-#include "../utilities/int_sqrt.h"
+
 
 namespace Proj {
 

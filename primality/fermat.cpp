@@ -1,8 +1,4 @@
 #include "fermat.h"
-#include "../utilities/fast_pow.h"
-#include "../utilities/gcd.h"
-#include <assert.h>
-
 
 namespace Proj {
 

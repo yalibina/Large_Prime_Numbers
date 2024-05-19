@@ -2,6 +2,9 @@
 #define LARGE_PRIME_NUMBERS_POLLARD_H
 
 #include "../utilities/large_type.h"
+#include "../utilities/gcd.h"
+#include "../utilities/fast_pow.h"
+
 
 namespace Proj {
 

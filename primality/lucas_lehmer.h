@@ -3,6 +3,7 @@
 
 #include "../utilities/large_type.h"
 #include "../utilities/test_status.h"
+#include "../utilities/fast_pow.h"
 
 namespace Proj {
 

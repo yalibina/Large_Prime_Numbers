@@ -1,7 +1,6 @@
 
 #include "trial_division.h"
-#include "../utilities/int_sqrt.h"
-#include "../utilities/reduce.h"
+
 
 namespace Proj {
 

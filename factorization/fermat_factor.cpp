@@ -1,6 +1,5 @@
-
 #include "fermat_factor.h"
-#include "../utilities/int_sqrt.h"
+
 
 namespace Proj {
 large_int fermat_factorization(const large_int& n) {
