@@ -1,8 +1,8 @@
 #ifndef LARGE_PRIME_NUMBERS_TRIAL_DIVISION_TEST_H
 #define LARGE_PRIME_NUMBERS_TRIAL_DIVISION_TEST_H
 
-#include "utilities/large_type.h"
-#include "utilities/test_status.h"
+#include "../utilities/large_type.h"
+#include "../utilities/test_status.h"
 
 namespace Proj {
 

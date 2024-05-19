@@ -4,7 +4,7 @@
 #include <bitset>
 #include "large_type.h"
 #include "rand.h"
-#include "../miller_rabin.h"
+#include "../primality/miller_rabin.h"
 
 namespace Proj {
 namespace detail {

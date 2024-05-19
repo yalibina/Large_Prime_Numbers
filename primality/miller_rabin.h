@@ -1,10 +1,10 @@
 #ifndef LARGE_PRIME_NUMBERS_MILLER_RABIN_H
 #define LARGE_PRIME_NUMBERS_MILLER_RABIN_H
 
-#include "utilities/large_type.h"
-#include "utilities/test_status.h"
-#include "utilities/reduce.h"
-#include <boost/multiprecision/detail/uniform_int_distribution.hpp>
+#include "../utilities/large_type.h"
+#include "../utilities/test_status.h"
+#include "../utilities/reduce.h"
+#include "boost/multiprecision/detail/uniform_int_distribution.hpp"
 
 namespace Proj {
 

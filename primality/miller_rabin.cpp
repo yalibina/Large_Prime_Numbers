@@ -1,9 +1,9 @@
 #include "miller_rabin.h"
 
-#include "utilities/fast_pow.h"
+#include "../utilities/fast_pow.h"
 #include "trial_division_test.h"
 #include "fermat.h"
-#include "utilities/rand.h"
+#include "../utilities/rand.h"
 
 namespace Proj {
 

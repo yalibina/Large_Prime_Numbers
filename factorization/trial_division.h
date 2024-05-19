@@ -14,7 +14,6 @@ struct TrialFactors {
     large_int f;
 };
 
-TestStatus trial_division_test(const large_int& n);
 TrialFactors trial_division_to_max(const large_int& n, const large_int& max);
 }
 

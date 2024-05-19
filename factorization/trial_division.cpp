@@ -5,24 +5,6 @@
 
 namespace Proj {
 
-static constexpr int primes[] =
-    {
-        3u, 5u, 7u, 11u, 13u, 17u, 19u, 23u, 29u, 31u,
-        37u, 41u, 43u, 47u, 53u, 59u, 61u, 67u, 71u, 73u,
-        79u, 83u, 89u, 97u, 101u, 103u, 107u, 109u, 113u,
-        127u, 131u, 137u, 139u, 149u, 151u, 157u, 163u,
-        167u, 173u, 179u, 181u, 191u, 193u, 197u, 199u,
-        211u, 223u, 227u, 229u, 233u};
-
-TestStatus trial_division_test(const large_int& n) {
-    for (int factor : primes) {
-        if (n % factor == 0) {
-            return TestStatus::Composite;
-        }
-    }
-    return TestStatus::Prime;
-}
-
 TrialFactors trial_division_to_max(const large_int& n, const large_int& max) {
     TrialFactors res;
     large_int f = n;
