@@ -4,8 +4,6 @@
 
 namespace Proj {
 
-
-
 TestStatus trial_division_to_max_test(const large_int& n, large_int max = -1) {
     if (n == 2) {
         return TestStatus::Prime;
@@ -14,7 +12,7 @@ TestStatus trial_division_to_max_test(const large_int& n, large_int max = -1) {
         return TestStatus::Composite;
     }
 
-    if (max == -1) {
+    if (max == -1 || max > n) {
         max = int_sqrt(n);
     }
 

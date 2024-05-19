@@ -35,8 +35,8 @@ FetchContent_MakeAvailable(boost_mult magic_enum googletest)
 
 add_executable(large_prime_numbers main.cpp utilities/fast_pow.cpp utilities/gcd.cpp miller_rabin.cpp lucas_lehmer.cpp fermat.cpp
         factorization/trial_division.cpp factorization/pollard.cpp factorization/fermat_factor.cpp utilities/int_sqrt.cpp utilities/reduce.cpp
-        trial_division_test.cpp
-        trial_division_test.h)
+        trial_division_test.cpp utilities/prime_generator.cpp
+        )
 
 target_link_libraries(large_prime_numbers PRIVATE boost_multiprecision magic_enum)
 
