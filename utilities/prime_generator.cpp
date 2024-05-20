@@ -43,7 +43,7 @@ large_int generate_n(int bit_cnt) {
         large_int block_li(block);  // so that shifting doesn't overflow
         n += (block_li <<= (j * detail::BlockSize));
     }
-
+    
     if (has_tail) {
         bits.reset();
         detail::generate_tail_block(bits, tail);

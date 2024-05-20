@@ -21,7 +21,7 @@ static constexpr int Primes[] = {3u,   5u,   7u,   11u,  13u,  17u,  19u,  23u, 
 static constexpr int TrialDivMax = 5000;
 }  // namespace detail
 
-TestStatus test_spsp_base(const DecomposeProp& n_reduce, const large_int& base);  // spsp = strong pseudoprime
+TestStatus test_spsp_base(const large_int& n, const large_int& base);  // spsp = strong pseudoprime
 TestStatus test_miller_rabin_fermat(const large_int& n, std::size_t trials);
 TestStatus test_miller_rabin(const large_int& n, std::size_t trials);
 
