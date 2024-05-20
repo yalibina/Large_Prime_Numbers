@@ -3,7 +3,7 @@
 
 namespace Proj {
 
-TestStatus test_trial_division_to_max(const large_int &n, large_int max = -1) {
+TestStatus test_trial_division_to_max(const large_int &n, large_int max) {
     if (n == 2) {
         return TestStatus::Prime;
     }

@@ -48,6 +48,6 @@ include(tests/sources.cmake)
 
 enable_testing()
 
-target_link_libraries(tests GTest::gtest_main)
+target_link_libraries(tests GTest::gtest_main boost_multiprecision magic_enum)
 include(GoogleTest)
 gtest_discover_tests(tests)
