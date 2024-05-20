@@ -1,6 +1,5 @@
 #include "fermat_factor.h"
 
-
 namespace Proj {
 large_int fermat_factorization(const large_int& n) {
     assert((n > 0) && (n % 2 == 1) && "N must be odd. Reduce by factor of 2 first.");
@@ -20,9 +19,8 @@ large_int fermat_factorization(const large_int& n) {
             u += 2;
         }
     }
-    large_int factor = (u+v-2) >> 1;
-    return std::move(factor);
-
+    large_int factor = (u + v - 2) >> 1;
+    return factor;
 }
 
-}
+}  // namespace Proj

@@ -7,7 +7,7 @@
 
 namespace Proj {
 
-TestStatus lucas_lehmer_test(int n);
+TestStatus test_lucas_lehmer(int n);
 
 }
 

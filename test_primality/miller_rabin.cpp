@@ -1,18 +1,17 @@
 #include "miller_rabin.h"
 
-
-
 namespace Proj {
 
-TestStatus spsp_test_base(const DecomposeProp& n_reduce, const large_int& base) {
-    large_int n = n_reduce.n + 1;
+TestStatus test_spsp_base(const large_int& n, const large_int& base) {
+    large_int nm1 = n - 1;
+    DecomposeProp nm1_reduce = reduce_by_2(nm1);
 
-    large_int test = fast_pow_mod(base, n_reduce.t, n);
+    large_int test = fast_pow_mod(base, nm1_reduce.t, n);
     if (test == 1 || test == (n - 1)) {
         return TestStatus::StrongProbablyPrime;
     }
 
-    for (int j = 1; j < n_reduce.exp; ++j) {
+    for (int j = 1; j < nm1_reduce.exp; ++j) {
         test = (test * test) % n;
         if (test == (n - 1)) {
             return TestStatus::StrongProbablyPrime;
@@ -21,8 +20,7 @@ TestStatus spsp_test_base(const DecomposeProp& n_reduce, const large_int& base) 
     return TestStatus::Composite;
 }
 
-
-TestStatus miller_rabin_test_fermat(const large_int& n, std::size_t trials) {
+TestStatus test_miller_rabin_fermat(const large_int& n, std::size_t trials) {
     static Rand::Random rnd;
 
     if (n == 2 || n == 3) {
@@ -33,7 +31,7 @@ TestStatus miller_rabin_test_fermat(const large_int& n, std::size_t trials) {
     }
 
     if (n <= 227) {
-        for (int prime : detail::PRIMES) {
+        for (int prime : detail::Primes) {
             if (n == prime) {
                 return TestStatus::Prime;
             }
@@ -41,21 +39,19 @@ TestStatus miller_rabin_test_fermat(const large_int& n, std::size_t trials) {
     }
 
     // Check small factors
-    if (trial_division_to_max_test(n, 5000) == TestStatus::Composite) {
+    if (test_trial_division_to_max(n, detail::TrialDivMax) == TestStatus::Composite) {
         return TestStatus::Composite;
     }
 
     // Fermat test
-    if (fermat_base_test(n, 228) == TestStatus::Composite) { // We've excluded all factors below 228
+    if (test_fermat_base(n, 228) == TestStatus::Composite) {  // We've excluded all factors below 228
         return TestStatus::Composite;
     }
 
     // Strong pseudoprime test
-    DecomposeProp n_reduce = reduce_by_2(n);
-
     for (int i = 0; i < trials; ++i) {
-        large_int base = rnd.uniform(2, n-2);
-        if (spsp_test_base(n_reduce, base) == TestStatus::Composite) {
+        large_int base = rnd.uniform(2, n - 2);
+        if (test_spsp_base(n, base) == TestStatus::Composite) {
             return TestStatus::Composite;
         }
     }
@@ -63,7 +59,7 @@ TestStatus miller_rabin_test_fermat(const large_int& n, std::size_t trials) {
     return TestStatus::StrongProbablyPrime;
 }
 
-TestStatus miller_rabin_test(const large_int& n, std::size_t trials) {
+TestStatus test_miller_rabin(const large_int& n, std::size_t trials) {
     static Rand::Random rnd;
 
     if (n == 2 || n == 3) {
@@ -74,16 +70,15 @@ TestStatus miller_rabin_test(const large_int& n, std::size_t trials) {
     }
 
     // Check small factors
-    if (trial_division_to_max_test(n, 5000) == TestStatus::Composite) {
+    if (test_trial_division_to_max(n, detail::TrialDivMax) == TestStatus::Composite) {
         return TestStatus::Composite;
     }
 
     // Strong pseudoprime test
-    DecomposeProp n_reduce = reduce_by_2(n - 1);
 
     for (int i = 0; i < trials; ++i) {
-        large_int base = rnd.uniform(2, n-2);
-        if (spsp_test_base(n_reduce, base) == TestStatus::Composite) {
+        large_int base = rnd.uniform(2, n - 2);
+        if (test_spsp_base(n, base) == TestStatus::Composite) {
             return TestStatus::Composite;
         }
     }

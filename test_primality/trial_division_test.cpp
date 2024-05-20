@@ -1,10 +1,9 @@
 
 #include "trial_division_test.h"
 
-
 namespace Proj {
 
-TestStatus trial_division_to_max_test(const large_int& n, large_int max = -1) {
+TestStatus test_trial_division_to_max(const large_int &n, large_int max = -1) {
     if (n == 2) {
         return TestStatus::Prime;
     }
@@ -16,7 +15,7 @@ TestStatus trial_division_to_max_test(const large_int& n, large_int max = -1) {
         max = int_sqrt(n);
     }
 
-    for (int i = 3; i <= max; i += 2){
+    for (int i = 3; i <= max; i += 2) {
         if (n % i == 0) {
             return TestStatus::Composite;
         }
@@ -24,4 +23,4 @@ TestStatus trial_division_to_max_test(const large_int& n, large_int max = -1) {
     return TestStatus::Prime;
 }
 
-}
+}  // namespace Proj

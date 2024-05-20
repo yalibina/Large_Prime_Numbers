@@ -17,7 +17,7 @@ large_int fast_pow(const large_int &base, large_int pow) {
         pow >>= 1;
     }
 
-    return std::move(res);
+    return res;
 }
 
 large_int fast_pow_mod(const large_int &base, large_int pow, const large_int &mod) {
@@ -29,13 +29,13 @@ large_int fast_pow_mod(const large_int &base, large_int pow, const large_int &mo
 
     while (pow > 0) {
         if (pow & 1) {
-            res = (res * y) % mod;
+            res = large_int((res * y) % mod);
         }
 
-        y = (y * y) % mod;
+        y = large_int((y * y) % mod);
         pow >>= 1;
     }
 
-    return std::move(res);
+    return res;
 }
 }  // namespace Proj

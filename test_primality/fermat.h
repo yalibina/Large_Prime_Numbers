@@ -9,8 +9,8 @@
 
 namespace Proj {
 
-TestStatus fermat_base_test(const large_int& n, size_t base);
+TestStatus test_fermat_base(const large_int &n, size_t base);
 
-} // namespace Proj
+}  // namespace Proj
 
-#endif //LARGE_PRIME_NUMBERS_FERMAT_H
+#endif  // LARGE_PRIME_NUMBERS_FERMAT_H

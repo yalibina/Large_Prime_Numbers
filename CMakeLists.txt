@@ -38,6 +38,7 @@ add_executable(large_prime_numbers main.cpp utilities/fast_pow.cpp utilities/gcd
         test_primality/trial_division_test.cpp utilities/prime_generator.cpp
         utilities/jacobi.cpp
         test_primality/lucas_spsp_test.cpp
+        rsa/rsa.cpp
 )
 
 target_link_libraries(large_prime_numbers PRIVATE boost_multiprecision magic_enum)

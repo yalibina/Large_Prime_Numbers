@@ -3,7 +3,7 @@
 namespace Proj {
 
 // Detects whether M(n) = 2^n - 1 is prime
-TestStatus lucas_lehmer_test(int n) {
+TestStatus test_lucas_lehmer(int n) {
     assert(n % 2 == 1 && "n must be odd.");
     large_int m = fast_pow(2, n) - 1;
     large_int s = 4;
@@ -16,4 +16,4 @@ TestStatus lucas_lehmer_test(int n) {
     return TestStatus::Composite;
 }
 
-}
+}  // namespace Proj

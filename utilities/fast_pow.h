@@ -5,8 +5,8 @@
 
 namespace Proj {
 
-large_int fast_pow_mod(const large_int &base, large_int pow, const large_int &mod);
 large_int fast_pow(const large_int &base, large_int pow);
+large_int fast_pow_mod(const large_int &base, large_int pow, const large_int &mod);
 
 }  // namespace Proj
 

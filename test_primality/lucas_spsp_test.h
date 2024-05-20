@@ -11,6 +11,8 @@
 namespace Proj {
 namespace detail {
 
+constexpr int InitD = 5;  // for sequence 5 -7 11 -13 15 -17 ...
+
 struct LucasSeqParameters {
     int U1;
     int V1;
@@ -25,13 +27,12 @@ struct LucasSeq {
 
 int find_D(const large_int& n);
 std::vector<int> to_binary(large_int& n);
-
 LucasSeqParameters get_init_parameters(int D);
 LucasSeq get_Uk_Vk(large_int k, int p, int q);
 
 }  // namespace detail
 
-TestStatus lucas_spsp_test(const large_int& n);
+TestStatus test_lucas_spsp(const large_int& n);
 
 }  // namespace Proj
 

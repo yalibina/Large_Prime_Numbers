@@ -18,4 +18,4 @@ large_int int_sqrt(const large_int& n) {
     return std::move(l);
 }
 
-}
+}  // namespace Proj

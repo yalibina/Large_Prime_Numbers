@@ -7,7 +7,7 @@
 
 namespace Proj {
 
-TestStatus trial_division_to_max_test(const large_int& n, large_int max);
+TestStatus test_trial_division_to_max(const large_int &n, large_int max);
 
 }
 

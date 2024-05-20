@@ -1,6 +1,5 @@
 #include "reduce.h"
 
-
 namespace Proj {
 
 DecomposeProp reduce_by_2(const large_int& n) {
@@ -10,7 +9,7 @@ DecomposeProp reduce_by_2(const large_int& n) {
         t >>= 1;
         ++a;
     }
-    return {n, std::move(t), a};
+    return {std::move(t), a};
 }
 
 DecomposeProp reduce_by_k(const large_int& n, const large_int& k) {
@@ -20,7 +19,7 @@ DecomposeProp reduce_by_k(const large_int& n, const large_int& k) {
         t /= k;
         ++a;
     }
-    return {n, std::move(t), a};
+    return {std::move(t), a};
 }
 
-}
+}  // namespace Proj

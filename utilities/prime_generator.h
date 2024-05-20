@@ -9,12 +9,20 @@
 namespace Proj {
 namespace detail {
 
-constexpr int block_size = 64;
-void generate_full_block(std::bitset<block_size>& bits);
-void generate_tail_block(std::bitset<block_size>& bits);
+constexpr int BlockSize = 64;
+constexpr int Oversample = 100;
+constexpr int MillerTrials = 100;
+constexpr int GenerationTries = 10;
+constexpr float BernoulliProb = 0.5;
+
+void generate_full_block(std::bitset<BlockSize>& bits);
+void generate_tail_block(std::bitset<BlockSize>& bits, int tail);
+large_int generate_n(int bit_cnt);
+large_int find_rsa_factor(const large_int& p_1);
+large_int generate_rsa_large_factor(int bit_cnt);
 }  // namespace detail
 
-large_int generate_prime(int bit_len);
+large_int generate_prime(int bit_cnt);
 
 }  // namespace Proj
 

@@ -17,6 +17,6 @@ struct TrialFactors {
 };
 
 TrialFactors trial_division_to_max(const large_int& n, const large_int& max);
-}
+}  // namespace Proj
 
 #endif  // LARGE_PRIME_NUMBERS_TRIAL_DIVISION_H

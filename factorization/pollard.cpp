@@ -5,16 +5,16 @@ namespace Proj {
 namespace detail {
 
 large_int fx(const large_int& x, int c, const large_int& n) {
-    return std::move(((x % n) * (x % n) + c) % n);
+    return ((x % n) * (x % n) + c) % n;
 }
 
 large_int abs_diff(const large_int& a, const large_int& b) {
     if (a > b) {
-        return std::move(a - b);
+        return a - b;
     }
-    return std::move(b - a);
+    return b - a;
 }
-} // np detail
+}  // namespace detail
 
 large_int pollard_rho(const large_int& n, int max_iter, int c) {
 
@@ -33,7 +33,7 @@ large_int pollard_rho(const large_int& n, int max_iter, int c) {
             if (i % 10 == 0) {
                 large_int g = calc_gcd(n, product);
                 if (g > 1) {
-                    return std::move(g);
+                    return g;
                 }
                 product = 1;
             }
@@ -52,13 +52,13 @@ large_int pollard_p1(const large_int& n, int max_iter, int c) {
     for (int i = 1; i <= max_iter; ++i) {
         m = fast_pow_mod(m, i, n);
         if (i % 10 == 0) {
-            large_int g = calc_gcd(m-1, n);
+            large_int g = calc_gcd(m - 1, n);
             if (g > 1) {
-                return std::move(g);
+                return g;
             }
         }
     }
     return -1;
 }
 
-}
+}  // namespace Proj

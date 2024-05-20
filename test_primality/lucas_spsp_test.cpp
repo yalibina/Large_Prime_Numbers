@@ -4,11 +4,11 @@ namespace Proj {
 namespace detail {
 
 int find_D(const large_int& n) {
-    int d = 5;
+    int d = InitD;
     int jac = do_jacobi(d, n);
 
     if (jac == 0) {
-        return -1; // n is composite
+        return -1;  // n is composite
     }
     while (jac != -1) {
         if (d > 0) {
@@ -22,10 +22,20 @@ int find_D(const large_int& n) {
         }
         jac = do_jacobi(d, n);
         if (jac == 0) {
-            return -1; // n is composite
+            return -1;  // n is composite
         }
     }
     return d;
+}
+
+std::vector<int> to_binary(large_int& n) {
+    std::vector<int> bit_n;
+    while (n > 0) {
+        int bit = ((n & 1) == 1) ? 1 : 0;
+        bit_n.push_back(bit);
+        n >>= 1;
+    }
+    return std::move(bit_n);
 }
 
 LucasSeqParameters get_init_parameters(int d) {
@@ -37,16 +47,6 @@ LucasSeqParameters get_init_parameters(int d) {
     param.V1 = param.P;
 
     return param;
-}
-
-std::vector<int> to_binary(large_int& n) {
-    std::vector<int> bit_n;
-    while (n > 0) {
-        int bit = ((n & 1) == 1) ? 1 : 0;
-        bit_n.push_back(bit);
-        n >>= 1;
-    }
-    return std::move(bit_n);
 }
 
 LucasSeq get_Uk_Vk(large_int k, int p, int q) {
@@ -78,8 +78,8 @@ LucasSeq get_Uk_Vk(large_int k, int p, int q) {
 
 }  // namespace detail
 
-TestStatus lucas_spsp_test(const large_int& n) {
-    if (n == 5) {
+TestStatus test_lucas_spsp(const large_int& n) {
+    if (n == detail::InitD) {
         return TestStatus::Prime;
     }
     large_int sqr = int_sqrt(n);
