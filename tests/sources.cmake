@@ -9,4 +9,5 @@ add_executable(
         test_primality/lucas_spsp_test.cpp
         rsa/rsa.cpp
         test_primality/bpsw_test.cpp
+        tests/test_rsa.cpp
 )
