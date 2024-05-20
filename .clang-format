@@ -9,3 +9,4 @@ DerivePointerAlignment: true
 KeepEmptyLinesAtTheStartOfBlocks: true
 SortIncludes: Never
 InsertNewlineAtEOF: true
+
