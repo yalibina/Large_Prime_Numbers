@@ -7,7 +7,6 @@ large_int calc_gcd(large_int a, large_int b) {
     assert(b > 0 && "Value 'b' must be > 0.");
     large_int tmp;
     while (b != 0) {
-        a = std::exchange(b, a % b);
         tmp = std::move(b);
         b = a % b;
         a = tmp;
