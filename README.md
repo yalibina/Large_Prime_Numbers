@@ -4,7 +4,7 @@
 
 ## Используемые библиотеки:
 
-* [Boost multiprecision 1.85.0](https://github.com/boostorg/multiprecision.git) для представления больших чисел
+* [Boost multiprecision 1.84.0](https://github.com/boostorg/multiprecision.git) для представления больших чисел
 * [Google C++ Testing Framework](https://github.com/google/googletest) для тестирования
 * Стандартная библиотека C++ для некоторых структур данных и генератора mt19937
 * [magic_enum](https://github.com/Neargye/magic_enum) для работы с Enum (в примерах использования)
