@@ -1,0 +1,10 @@
+#ifndef LARGE_PRIME_NUMBERS_RSA_MESSAGES_H
+#define LARGE_PRIME_NUMBERS_RSA_MESSAGES_H
+
+#include <string>
+
+namespace TestRSA {
+const char* messages[] = {"DON'T TELL ANYONE!", "SUPER    SECRET", "ABCDEFGHIJKLMNOPQ?RSTUVWXYZ"};
+}
+
+#endif  // LARGE_PRIME_NUMBERS_RSA_MESSAGES_H
