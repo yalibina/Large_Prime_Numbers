@@ -16,7 +16,7 @@ TEST(Primality, TrialDiv) {
 }
 
 TEST(Primality, LucasLehmer) {
-    for (auto exp : TestPrimes::Mersenne_exp) {
+    for (auto exp : TestPrimes::MersenneExp) {
         EXPECT_EQ(Proj::test_lucas_lehmer(exp), Proj::TestStatus::Prime);
     }
 }
@@ -25,7 +25,7 @@ TEST(Primality, MillerRabin) {
     for (auto prime : TestPrimes::SmallPrimes) {
         EXPECT_NE(Proj::test_miller_rabin(prime, 100), Proj::TestStatus::Composite);
     }
-    for (auto exp : TestPrimes::Mersenne_exp) {
+    for (auto exp : TestPrimes::MersenneExp) {
         Proj::large_int n = Proj::fast_pow(2, exp) - 1;
         EXPECT_NE(Proj::test_miller_rabin(n, 100), Proj::TestStatus::Composite);
     }
@@ -40,7 +40,7 @@ TEST(Primality, FermatSmall) {
 }
 
 TEST(Primality, FermatMersenne) {
-    for (auto exp : TestPrimes::Mersenne_exp) {
+    for (auto exp : TestPrimes::MersenneExp) {
         Proj::large_int n = Proj::fast_pow(2, exp) - 1;
         if (n > 5) {
             EXPECT_EQ(Proj::test_fermat_base(n, 2), Proj::TestStatus::ProbablyPrime);
